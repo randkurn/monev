@@ -1,0 +1,667 @@
+:root {
+  --bg-color: #313338;
+  --box-color: #1e1f22;
+  --text-color: #fff;
+  --text-secondary: #b5bac1;
+  --input-bg: #1e1f22;
+  --input-border: #232428;
+  --input-focus: #ff8906;
+  --primary-color: #ff8906;
+  --secondary-color: #f25f4c;
+  --hover-color: #f25f4c;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: width .5s, height .5s;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+::-webkit-scrollbar {
+  width: .3rem;
+  height: auto;
+  scrollbar-width: thin;
+  border-radius: 50%;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsla(235, 85%, 65%, 0.1);
+  border-radius: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.box-color {
+  background: linear-gradient(to bottom, 
+  #0f0e17, 
+  #f25f4c5a);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  max-width: 600px;
+}
+
+.container::before {
+  content: "";
+  position: fixed;
+  margin: -15px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../public/bg.JPG");
+  background-repeat: no-repeat;
+  z-index: -1;
+  filter: blur(5px);
+  background-color: rgba(0, 0, 0, .5);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-border {
+  position: relative;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 2px;
+  flex-direction: column;
+  max-height: calc(100% - 40px);
+  background: linear-gradient(to bottom, transparent, rgba(88, 101, 242, 0.3));
+}
+
+.profile {
+  position: relative;
+  border-radius: 8px;
+  margin: 0 auto;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+}
+
+.profile .banner {
+  height: 120px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile .banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card {  
+  position: relative;
+  padding: 0 16px 16px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 0 0 16px;
+  border-radius: 5px;
+}
+
+.name-box {
+  margin: 16px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.display-name {
+  color: var(--text-color);
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+.body {
+  margin-top: 12px;
+  padding: 0 16px 16px;
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-x: hidden;
+  padding: 5px;
+}
+
+.title-body {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Form Styles */
+.progress-bar {
+  height: 6px;
+  background-color: var(--input-bg);
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+.progress-indicator {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.form-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.part-indicator {
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--input-border);
+  font-family: "Poppins", sans-serif;
+}
+
+.form-section {
+  margin-bottom: 24px;
+}
+
+.form-item {
+  margin-bottom: 16px;
+}
+
+.form-item-title {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-item-title.required::after {
+  content: "*";
+  color: var(--secondary-color);
+  margin-left: 4px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-input:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 2px rgba(255, 137, 6, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.dropdown-select {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23b5bac1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  font-family: "Poppins", sans-serif;
+}
+
+.dropdown-select:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 2px rgba(255, 137, 6, 0.1);
+}
+
+.dropdown-select option {
+  background-color: var(--box-color);
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+}
+
+textarea.form-input {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Card container styles */
+.card-container {
+  background: var(--box-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 5px var(--box-shadow-color);
+  border: 1px solid var(--input-border);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-title {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+}
+
+.range-value {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Range slider styling */
+.slider {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.label-min-value, .label-max-value {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+}
+
+.rangeslider {
+  position: relative;
+  width: 100%;
+  height: 10px;
+}
+
+.input-ranges {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, 
+    rgba(88, 101, 242, 0.2), 
+    rgba(242, 95, 76, 0.5));
+  border-radius: 10px;
+  outline: none;
+}
+
+.input-ranges::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--bg-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.input-ranges::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--bg-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Yes-No radio buttons styling */
+.yes-no-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.yes-no-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.yes-no-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.yes-no-option label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: 8px 16px;
+  background-color: var(--box-color);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.yes-no-option input[type="radio"]:checked + label {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+.yes-no-option input[type="radio"]:focus + label {
+  box-shadow: 0 0 0 2px var(--input-focus);
+}
+
+.yes-no-option label:hover {
+  border-color: var(--hover-color);
+}
+
+/* Input text styling */
+.input-text {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.input-text:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 2px rgba(255, 137, 6, 0.1);
+}
+
+.input-text::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn:hover {
+  background-color: var(--hover-color);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 137, 6, 0.1);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-color);
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* Part indicator */
+#part2 {
+  display: none;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: var(--box-color);
+  margin: auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  border: 1px solid var(--input-border);
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-btn {
+  padding: 10px 25px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-btn:hover {
+  background-color: var(--hover-color);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.close-modal:hover {
+  color: var(--text-color);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .container::before {
+    background-image: url("../public/bg.JPG");
+    margin: -2px;
+    filter: blur(2px);
+  }
+
+  .profile {
+    width: 340px;
+  }
+
+  .profile .banner {
+    height: 100px;
+  }
+
+  .name-box {
+    margin: 12px auto;
+  }
+
+  .display-name {
+    font-size: 22px;
+  }
+
+  .body {
+    padding: 0 12px 12px;
+    max-height: calc(100vh - 220px);
+  }
+
+  .form-item-title {
+    font-size: 14px;
+  }
+
+  .radio-scale {
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  
+  .radio-item {
+    min-width: 45%;
+  }
+
+  .btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+  
+  .card-container {
+    padding: 12px;
+  }
+  
+  .card-title {
+    font-size: 13px;
+  }
+  
+  .label-min-value, .label-max-value {
+    font-size: 11px;
+  }
+  
+  .yes-no-group {
+    gap: 10px;
+  }
+  
+  .yes-no-option label {
+    min-width: 70px;
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+  
+  .input-text, .dropdown-select, .form-input {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .form-section {
+    margin-bottom: 20px;
+  }
+  
+  .form-item {
+    margin-bottom: 14px;
+  }
+  
+  .part-indicator {
+    padding: 6px 12px;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+}
